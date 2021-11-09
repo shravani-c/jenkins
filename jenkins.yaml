@@ -4,4 +4,4 @@ jenkins:
       allowsSignup: false
       users:
        - id: admin
-         password: admin
+         password: "#jbcrypt:$2a$04$OYtzNTIiNzpNR2X3CY/sIO2ow2qhZHPWAJoEPTL2UqL4SQHkrJ7.6"
