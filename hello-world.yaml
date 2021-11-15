@@ -14,9 +14,19 @@ jobs:
                 pipeline {
                     agent any
                     stages {
-                        stage('Hello') {
+                        stage('Init') {
                             steps {
-                                echo 'Hello World'
+                                echo 'Stage 1 Init'
+                            }
+                        }
+                        stage('Build') {
+                            steps {
+                                echo 'Stage 2 Build'
+                            }
+                        }
+                        stage('Post Build') {
+                            steps {
+                                echo 'Stage 3 Post Build'
                             }
                         }
                     }
