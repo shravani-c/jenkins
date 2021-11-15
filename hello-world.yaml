@@ -9,11 +9,39 @@ jobs:
         displayName('Hello World')
         description('First pipeline to print Hello World')
         definition {
-          cpsScm {
-              scriptPath('jenkinsFile')
-              scm {
-                  git('https://github.com/shravani-c/jenkins.git')
-              }
-          }
+          cps {
+              script("""
+                pipeline {
+                  agent any
+                  stages {
+                      stage('Hello') {
+                          steps {
+                              echo 'Hello World'
+                          }
+                      }
+                  }
+                }
+                """)
+            }
         }
       }
+
+# jobs:
+#   - script: >
+#       folder('project-a') {
+#         displayName('Project A')
+#         description('Folder for project A')
+#       }
+#   - script: >
+#       pipelineJob('project-a/hello') {
+#         displayName('Hello World')
+#         description('First pipeline to print Hello World')
+#         definition {
+#           cpsScm {
+#               scriptPath('jenkinsFile')
+#               scm {
+#                   git('https://github.com/shravani-c/jenkins.git')
+#               }
+#           }
+#         }
+#       }
