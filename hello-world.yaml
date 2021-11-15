@@ -1,7 +1,7 @@
 job:
-  -script: >
-    folder('project-a') {
-    displayName('Project A')
-    description('Folder for project A')
-    }
+  - script: >
+      folder('project-a') {
+      displayName('Project A')
+      description('Folder for project A')
+      }
 
