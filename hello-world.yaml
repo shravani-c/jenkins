@@ -22,7 +22,7 @@ jobs:
                         stage('Build') {
                             input {
                                     message "Should we continue?"
-                                    ok "Yes" .stripIndent()
+                                    ok "Yes"
                                   }
                             steps {
                                 echo 'Stage 2 Build'
