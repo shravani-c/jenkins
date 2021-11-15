@@ -4,4 +4,24 @@ jobs:
         displayName('Project A')
         description('Folder for project A')
       }
+  - script: >
+      pipelineJob('project-a/hello') {
+        displayName('Hello World')
+        description('First pipeline to print Hello World')
+        definition {
+          cps {
+              script(pipeline {
+                        agent any
+
+                        stages {
+                            stage('Hello') {
+                                steps {
+                                    echo 'Hello World'
+                                }
+                            }
+                        }
+                    })
+          }
+        }
+      }
 
