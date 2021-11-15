@@ -10,17 +10,18 @@ jobs:
         description('First pipeline to print Hello World')
         definition {
           cps {
-              script("""pipeline {
-                  agent any
-                  stages {
-                      stage('Hello') {
-                          steps {
-                              echo 'Hello World'
-                          }
-                      }
-                  }
-                }
-           """)
+              script('''
+pipeline {
+    agent any
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+    }
+  }
+''')
             }
         }
       }
