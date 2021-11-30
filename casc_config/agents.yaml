@@ -22,10 +22,10 @@ jenkins:
             instanceCap: 5
             idleMinutes: 2
             label: "alpine"
-            #volumes:
-             # - hostPathVolume:
-                 # mountPath: "mountPath"
-                  #hostPath: "hostPath"
+            volumes:
+              - hostPathVolume:
+                  mountPath: "/var/run/docker.sock"
+                  hostPath: "/var/run/docker.sock"
 
             containers:
               - name: "shrav-alpine"
@@ -36,4 +36,5 @@ jenkins:
                 args: "9999999"
                 #workingDir: "workingDir"
                 ttyEnabled: true
+                
 
