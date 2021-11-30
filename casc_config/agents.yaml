@@ -32,7 +32,7 @@ jenkins:
 
             containers:
               - name: "shrav-alpine"
-                image: "shrav-alpine"
+                image: "shrav-alpine:latest"
                 #privileged: true
                 alwaysPullImage: never
                 command: "sleep"
