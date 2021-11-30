@@ -28,8 +28,8 @@ jenkins:
                 image: "shrav-alpine:latest"
                 #privileged: true
                 alwaysPullImage: never
-                command: "sleep"
-                args: "9999999"
+                command: "while true"
+                args: "sleep 9999999"
                 #workingDir: "workingDir"
                 ttyEnabled: true
                 
