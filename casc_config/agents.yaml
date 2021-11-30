@@ -1,0 +1,42 @@
+unclassified:
+  location:
+    url: http://jenkins/
+
+jenkins:
+  clouds:
+    - kubernetes:
+        name: "j-agents"
+        serverUrl: "docker-desktop"
+        #serverCertificate: "serverCertificate"
+        skipTlsVerify: true
+        #credentialsId: "advanced-k8s-credentials"
+        namespace: "default"
+        jenkinsUrl: "http://localhost:8080"
+        #jenkinsTunnel: "jenkinsTunnel"
+        containerCapStr: 5
+        #maxRequestsPerHostStr: 64
+        retentionTimeout: 5
+        connectTimeout: 10
+        readTimeout: 20
+
+        templates:
+          - name: "alpine"
+            serviceAccount: "jenkins"
+            instanceCap: 5
+            idleMinutes: 2
+            label: "alpine"
+            #volumes:
+             # - hostPathVolume:
+                 # mountPath: "mountPath"
+                  #hostPath: "hostPath"
+
+            containers:
+              - name: "shrav-alpine"
+                image: "shrav-alpine"
+                #privileged: true
+                alwaysPullImage: never
+                command: "sleep"
+                args: "9999999"
+                #workingDir: "workingDir"
+                ttyEnabled: true
+
