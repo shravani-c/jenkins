@@ -12,7 +12,12 @@ jobs:
           cps {
               script('''
                 pipeline {
-                    agent any
+                    agent {
+                      kubernetes {
+                          cloud 'j-agents'
+                          label 'alpine'
+                      }
+                    }
                     stages {
                         stage('Init') {
                             steps {
