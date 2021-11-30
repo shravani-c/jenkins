@@ -22,11 +22,7 @@ jenkins:
             instanceCap: 5
             idleMinutes: 2
             label: "alpine"
-            volumes:
-              - hostPathVolume:
-                  mountPath: "/var/run/docker.sock"
-                  hostPath: "/var/run/docker.sock"
-
+            
             containers:
               - name: "shrav-alpine"
                 image: "shrav-alpine:latest"
