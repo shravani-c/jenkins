@@ -24,8 +24,8 @@ jenkins:
             label: "alpine"
             
             containers:
-              - name: "shrav-alpine"
-                image: "shrav-alpine:latest"
+              - name: "glass"
+                image: "glass:latest"
                 #privileged: true
                 alwaysPullImage: never
                 command: "sleep"
