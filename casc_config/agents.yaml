@@ -18,7 +18,7 @@ jenkins:
 
         templates:
           - name: "alpine"
-            serviceAccount: "jenkins"
+            serviceAccount: "jenkins-sa"
             instanceCap: 5
             idleMinutes: 2
             label: "alpine"
