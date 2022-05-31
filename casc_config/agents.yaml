@@ -28,8 +28,8 @@ jenkins:
                 image: "glass:latest"
                 #privileged: true
                 alwaysPullImage: never
-                command: "sleep"
-                args: "9999999"
+                command: "/bin/bash"
+                #args: "9999999"
                 #workingDir: "workingDir"
                 ttyEnabled: true
                 
