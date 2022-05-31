@@ -31,6 +31,6 @@ jenkins:
                 command: "/bin/bash"
                 #args: "9999999"
                 #workingDir: "workingDir"
-                ttyEnabled: true
+                ttyEnabled: false
                 
 
