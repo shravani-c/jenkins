@@ -28,7 +28,7 @@ jenkins:
             showRawYaml: true
             
             containers:
-              - name: "alpine"
+              - name: "jnlp"
                 image: "glass:latest"
                 privileged: true
                 alwaysPullImage: never
