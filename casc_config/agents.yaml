@@ -10,7 +10,7 @@ jenkins:
         #serverCertificate: "serverCertificate"
         skipTlsVerify: true
         #credentialsId: "advanced-k8s-credentials"
-        namespace: "default"
+        #namespace: "default"
         jenkinsUrl: "http://jenkins-master.default.svc.cluster.local:8080/jenkins"
         jenkinsTunnel: "jenkins-agent.default.svc.cluster.local:50000"
         containerCapStr: 5
@@ -32,9 +32,9 @@ jenkins:
                 image: "glass:latest"
                 privileged: true
                 alwaysPullImage: never
-                command: "sleep"
-                args: "9999999"
-                #workingDir: "workingDir"
+                command: "/bin/bash"
+                args: "sleep 9999999"
+                workingDir: "/build"
                 ttyEnabled: false
                 
 
