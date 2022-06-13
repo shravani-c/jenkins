@@ -1,3 +1,6 @@
+unclassified:
+  location:
+    url: http://localhost:8080/
 
 jenkins:
   clouds:
@@ -8,10 +11,10 @@ jenkins:
         skipTlsVerify: true
         #credentialsId: "advanced-k8s-credentials"
         namespace: "default"
-        jenkinsUrl: "http://jenkins-svc.default.svc.cluster.local:8080/jenkins"
+        jenkinsUrl: "http://jenkins-master.default.svc.cluster.local:8080/jenkins"
         jenkinsTunnel: "jenkins-agent.default.svc.cluster.local:50000"
         containerCapStr: 5
-        #maxRequestsPerHostStr: 64
+        maxRequestsPerHostStr: 64
         retentionTimeout: 5
         connectTimeout: 10
         readTimeout: 20
@@ -22,11 +25,12 @@ jenkins:
             instanceCap: 5
             idleMinutes: 2
             label: "alpine"
+            showRawYaml: true
             
             containers:
               - name: "alpine"
                 image: "glass:latest"
-                #privileged: true
+                privileged: true
                 alwaysPullImage: never
                 command: "sleep"
                 args: "9999999"
