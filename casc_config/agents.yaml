@@ -11,7 +11,7 @@ jenkins:
         skipTlsVerify: true
         #credentialsId: "advanced-k8s-credentials"
         #namespace: "default"
-        jenkinsUrl: "http://jenkins-master.default.svc.cluster.local:8080/jenkins"
+        jenkinsUrl: "http://localhost:8080/jenkins"
         jenkinsTunnel: "jenkins-agent.default.svc.cluster.local:50000"
         containerCapStr: 5
         maxRequestsPerHostStr: 64
@@ -28,7 +28,7 @@ jenkins:
             showRawYaml: true
             
             containers:
-              - name: "jnlp"
+              - name: "alpine"
                 image: "glass:latest"
                 privileged: true
                 alwaysPullImage: never
