@@ -32,8 +32,8 @@ jenkins:
                 image: "glass:latest"
                 privileged: true
                 alwaysPullImage: never
-                command: "/bin/bash"
-                args: "sleep 9999999"
+                command: "/bin/bash -c --"
+                args: "while true; do sleep 300000; done;"
                 workingDir: "/build"
                 ttyEnabled: false
                 
