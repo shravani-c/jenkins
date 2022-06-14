@@ -29,7 +29,7 @@ jenkins:
             
             containers:
               - name: "alpine"
-                image: "glass:latest"
+                image: "alpine:latest"
                 privileged: true
                 alwaysPullImage: never
                 command: "sleep"
