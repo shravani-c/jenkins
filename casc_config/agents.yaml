@@ -5,36 +5,24 @@ unclassified:
 jenkins:
   clouds:
     - kubernetes:
-        name: "j-agents"
-        serverUrl: "https://kubernetes.docker.internal:6443"
-        #serverCertificate: "serverCertificate"
-        skipTlsVerify: true
-        #credentialsId: "advanced-k8s-credentials"
-        #namespace: "default"
-        jenkinsUrl: "http://127.0.0.1:8080"
+        name: "kubernetes"
+        containerCap: 30
         jenkinsTunnel: "jenkins-agent.default.svc.cluster.local:50000"
-        containerCapStr: 5
-        maxRequestsPerHostStr: 64
-        retentionTimeout: 5
-        connectTimeout: 10
-        readTimeout: 20
-
+        jenkinsUrl: "http://jenkins-master.default.svc.cluster.local:8080/jenkins"
         templates:
-          - name: "alpine"
-            serviceAccount: "jenkins-sa"
-            instanceCap: 5
-            idleMinutes: 2
+          - id: "alpine"
+            name: "alpine"
             label: "alpine"
-            showRawYaml: true
-            
+            serviceAccount: "jenkins-sa"
+            idleMinutes: "5"
+            yamlMergeStrategy: "override"
+            slaveConnectTimeout: 120
+            nodeUsageMode: "EXCLUSIVE"
             containers:
               - name: "alpine"
+                alwaysPullImage: false
                 image: "alpine:latest"
-                privileged: true
-                alwaysPullImage: never
+                workingdir: "/home/jenkins"
                 command: "sleep"
-                args: "99999999"
-                workingDir: "/build"
+                args: "9999999"
                 ttyEnabled: false
-                
-
