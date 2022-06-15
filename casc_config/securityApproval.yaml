@@ -1,0 +1,4 @@
+security:
+  scriptApproval:
+    approvedSignatures:
+      - "staticMethod java.lang.System getProperty java.lang.String"
