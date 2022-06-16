@@ -5,32 +5,26 @@ jobs:
         description('Folder for project A')
       }
   - script: >
-      pipelineJob('project-a/hello') {
-        displayName('Hello World')
-        description('First pipeline to print Hello World')
+      pipelineJob('project-a/first') {
+        displayName('First pipeline')
+        description('First pipeline to play around Jenkins')
         definition {
           cps {
               script('''
                 pipeline {
                     agent {
-                      kubernetes {
-                          cloud 'j-agents'
                           label 'alpine'
-                      }
                     }
                     stages {
                         stage('Init') {
                             steps {
-                                echo 'Stage 1 Init'
+                                echo 'Stage 1 '
                             }
                         }
                         stage('Build') {
-                            input {
-                                    message "Should we continue?"
-                                    ok "Yes"
-                                  }
+                            
                             steps {
-                                echo 'Stage 2 Build'
+                                echo 'Stage 2 '
                             }
                         }
                         stage('Post Build') {
@@ -45,23 +39,3 @@ jobs:
             }
         }
       }
-
-# jobs:
-#   - script: >
-#       folder('project-a') {
-#         displayName('Project A')
-#         description('Folder for project A')
-#       }
-#   - script: >
-#       pipelineJob('project-a/hello') {
-#         displayName('Hello World')
-#         description('First pipeline to print Hello World')
-#         definition {
-#           cpsScm {
-#               scriptPath('jenkinsFile')
-#               scm {
-#                   git('https://github.com/shravani-c/jenkins.git')
-#               }
-#           }
-#         }
-#       }
